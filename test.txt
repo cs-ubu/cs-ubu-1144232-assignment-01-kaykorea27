@@ -1,0 +1,210 @@
+linuxlab@fariw:~$ cd Desktop/
+linuxlab@fariw:~/Desktop$ for i in 1,2,3; do echo $i ; done
+1,2,3
+linuxlab@fariw:~/Desktop$ for i in 1,2,3; do echo $i ; done
+1,2,3
+linuxlab@fariw:~/Desktop$ for i in 1 2 3; do echo $i ; done
+1
+2
+3
+linuxlab@fariw:~/Desktop$ echo 1 >> test.txt
+linuxlab@fariw:~/Desktop$ for i in $(seq 1 20); do echo $1 >> test.txt; done
+linuxlab@fariw:~/Desktop$ cat test.txt
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+linuxlab@fariw:~/Desktop$ for i in $(seq 1 20); do echo $i >> test.txt; done
+linuxlab@fariw:~/Desktop$ cat test.txt
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+linuxlab@fariw:~/Desktop$ cat test.txt
+linuxlab@fariw:~/Desktop$ for i in $(seq 1 20); do echo $i >> test.txt; done
+linuxlab@fariw:~/Desktop$ cat test.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+linuxlab@fariw:~/Desktop$ nano test.txt
+linuxlab@fariw:~/Desktop$ nano test.txt
+linuxlab@fariw:~/Desktop$ vi test,txt
+linuxlab@fariw:~/Desktop$ whoami
+linuxlab
+linuxlab@fariw:~/Desktop$ who
+linuxlab :0           2019-07-23 11:35 (:0)
+linuxlab@fariw:~/Desktop$ groups
+linuxlab adm sudo lpadmin sambashare
+linuxlab@fariw:~/Desktop$ adduser --help
+adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
+[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid ID]
+[--disabled-password] [--disabled-login] [--add_extra_groups]
+[--encrypt-home] USER
+   Add a normal user
+
+adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]
+[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-password]
+[--disabled-login] [--add_extra_groups] USER
+   Add a system user
+
+adduser --group [--gid ID] GROUP
+addgroup [--gid ID] GROUP
+   Add a user group
+
+addgroup --system [--gid ID] GROUP
+   Add a system group
+
+adduser USER GROUP
+   Add an existing user to an existing group
+
+general options:
+  --quiet | -q      don't give process information to stdout
+  --force-badname   allow usernames which do not match the
+                    NAME_REGEX[_SYSTEM] configuration variable
+  --extrausers      uses extra users as the database
+  --help | -h       usage message
+  --version | -v    version number and copyright
+  --conf | -c FILE  use FILE as configuration file
+
+linuxlab@fariw:~/Desktop$ sudo add user jack
+[sudo] password for linuxlab: 
+sudo: add: command not found
+linuxlab@fariw:~/Desktop$ sudo adduser jack
+Adding user `jack' ...
+Adding new group `jack' (1004) ...
+Adding new user `jack' (1004) with group `jack' ...
+Creating home directory `/home/jack' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+Changing the user information for jack
+Enter the new value, or press ENTER for the default
+	Full Name []: AAA
+	Room Number []: sc242
+	Work Phone []: 4446
+	Home Phone []: xxxx
+	Other []: 
+Is the information correct? [Y/n] y
+linuxlab@fariw:~/Desktop$ su jack
+Password: 
+su: Authentication failure
+linuxlab@fariw:~/Desktop$ su jack
+Password: 
+jack@fariw:/home/linuxlab/Desktop$ whoami
+jack
+jack@fariw:/home/linuxlab/Desktop$ passwd
+Changing password for jack.
+(current) UNIX password: 
+passwd: Authentication token manipulation error
+passwd: password unchanged
+jack@fariw:/home/linuxlab/Desktop$ passwd
+Changing password for jack.
+(current) UNIX password: 
+passwd: Authentication token manipulation error
+passwd: password unchanged
+jack@fariw:/home/linuxlab/Desktop$ passwd
+Changing password for jack.
+(current) UNIX password: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+jack@fariw:/home/linuxlab/Desktop$ exit
+exit
+linuxlab@fariw:~/Desktop$ passwd
+Changing password for linuxlab.
+(current) UNIX password: 
+Enter new UNIX password: 
+Retype new UNIX password: 
+passwd: password updated successfully
+linuxlab@fariw:~/Desktop$ deluser jack
+/usr/sbin/deluser: Only root may remove a user or group from the system.
+linuxlab@fariw:~/Desktop$ sodo deluser jack
+
+Command 'sodo' not found, did you mean:
+
+  command 'nodo' from snap nodo (master)
+  command 'sudo' from deb sudo
+  command 'sudo' from deb sudo-ldap
+  command 'todo' from deb devtodo
+
+See 'snap info <snapname>' for additional versions.
+
+linuxlab@fariw:~/Desktop$ sudo deluser jack
+Removing user `jack' ...
+Warning: group `jack' has no more members.
+Done.
+linuxlab@fariw:~/Desktop$ su jack
+No passwd entry for user 'jack'
+
